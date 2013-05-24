@@ -10,7 +10,7 @@
     "component/emitter": "*",
     "component/domify": "*",
     "component/query": "*",
-    "component/events": "*",
+    "component/event": "*",
     "component/classes": "*"
   },
   "scripts": [

@@ -6,7 +6,7 @@
 var Emitter = require('emitter')
   , domify = require('domify')
   , query = require('query')
-  , events = require('events')
+  , events = require('event')
   , classes = require('classes')
 ;
 
@@ -51,8 +51,7 @@ function overlay(options){
 function Overlay(options) {
   Emitter.call(this);
   options = options || {};
-  this.target = options.target || 'body';
-  this.target = query(this.target) || this.target;
+  this.target = options.target || document.body;
   this.closable = options.closable;
   this.el = domify(require('./template'))[0];
   this._classes = classes(this.el);
