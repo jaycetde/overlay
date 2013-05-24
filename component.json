@@ -8,7 +8,10 @@
   ],
   "dependencies": {
     "component/emitter": "*",
-    "component/jquery": "*"
+    "component/domify": "*",
+    "component/query": "*",
+    "component/events": "*",
+    "component/classes": "*"
   },
   "scripts": [
     "index.js",

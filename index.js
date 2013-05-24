@@ -4,7 +4,11 @@
  */
 
 var Emitter = require('emitter')
-  , o = require('jquery');
+  , domify = require('domify')
+  , query = require('query')
+  , events = require('events')
+  , classes = require('classes')
+;
 
 /**
  * Expose `overlay()`.
@@ -48,11 +52,16 @@ function Overlay(options) {
   Emitter.call(this);
   options = options || {};
   this.target = options.target || 'body';
+  this.target = query(this.target) || this.target;
   this.closable = options.closable;
-  this.el = o(require('./template'));
-  if (this.target) this.el.removeAttr('id').addClass('overlay');
-  this.el.appendTo(this.target);
-  if (this.closable) this.el.click(this.hide.bind(this));
+  this.el = domify(require('./template'))[0];
+  this._classes = classes(this.el);
+  if (this.target) {
+    this.el.removeAttribute('id');
+    this._classes.add('overlay');
+  }
+  this.target.appendChild(this.el);
+  if (this.closable) events.bind(this.el, 'click', this.hide.bind(this));
 }
 
 /**
@@ -72,7 +81,7 @@ Emitter(Overlay.prototype);
 
 Overlay.prototype.show = function(){
   this.emit('show');
-  this.el.removeClass('hide');
+  this._classes.remove('hide');
   return this;
 };
 
@@ -101,11 +110,11 @@ Overlay.prototype.hide = function(){
 
 Overlay.prototype.remove = function(){
   var self = this;
-  this.emit('close');
-  this.el.addClass('hide');
+  self.emit('close');
+  this._classes.add('hide');
   setTimeout(function(){
-    self.el.remove();
+    self.el.parentNode.removeChild(self.el);
   }, 2000);
-  return this;
+  return self;
 };
 
