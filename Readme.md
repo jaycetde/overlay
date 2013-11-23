@@ -1,11 +1,11 @@
 # Overlay
 
-  Page overlay component.
+  Simplified page overlay component.
 
 ## Installation
 
 ```
-$ npm install overlay-component
+$ component install JayceTDE/overlay
 ```
 
 ## API
@@ -15,8 +15,7 @@ $ npm install overlay-component
   Returns a new `Overlay`.
 
   Options:
-
-  - `closable`: whether or not a user may click the overlay to close [__false__]
+  
   - `target`: target element to overlay [body]
 
 ### Overlay#show()
@@ -31,7 +30,6 @@ $ npm install overlay-component
 
   - `show` when the overlay is shown
   - `hide` when the overlay is hidden
-  - `close` when the overlay is removed (follows hide normally)
 
 
 ## License

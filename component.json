@@ -1,24 +1,19 @@
 {
   "name": "overlay",
-  "description": "Overlay component",
-  "version": "0.1.0",
+  "description": "Simplified overlay component",
+  "version": "0.0.1",
   "keywords": [
     "overlay",
     "ui"
   ],
   "dependencies": {
-    "component/emitter": "*",
-    "component/domify": "*",
-    "component/query": "*",
-    "component/event": "*",
     "component/classes": "*"
   },
   "scripts": [
-    "index.js",
-    "template.js"
+    "index.js"
   ],
   "styles": [
-    "overlay.css"
+    "style.css"
   ],
   "license": "MIT"
 }
