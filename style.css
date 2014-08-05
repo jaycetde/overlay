@@ -8,6 +8,9 @@
     background: #000;
     z-index: 500;
 }
+.body-overlay {
+    position: fixed;
+}
 .hidden {
     display: none;
 }
